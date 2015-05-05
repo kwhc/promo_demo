@@ -1,0 +1,153 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h2>New Promo</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-9" style="padding-bottom:40px;">
+        
+        <div class="form-group" style="padding-bottom:20px;">
+            <label>Promo Code</label>
+            <input type="text" class="form-control" ng-model="promocode" />
+        </div>
+             
+        <div class="form-group" style="padding-bottom:20px;">
+            <h4>Promo Date</h4>
+            <tabset>
+                <tab heading="Single Day">
+                    <div style="padding-top:10px;">
+                        <div class="form-group">
+                            <p class="input-group">
+                              <input type="text" class="form-control" datepicker-popup="{{'EEEE, MMMM dd, yyyy'}}" ng-model="parent.promodatebegin" is-open="dpOpened.singledateopened" min-date="'2015-05-01'" close-text="Close" />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event,'singledateopened')"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="Date Span">
+                    <div style="padding-top:10px;">               
+                        <div class="form-group">
+                            <label>Begin Date</label>
+                            <p class="input-group">
+                              <input type="text" class="form-control" datepicker-popup="{{'EEEE, MMMM dd, yyyy'}}" ng-model="parent.promodatebegin" is-open="dpOpened.rangedatebegin" min-date="'2015-05-01'" close-text="Close" />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event,'rangedatebegin')"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <p class="input-group">
+                              <input type="text" class="form-control" datepicker-popup="{{'EEEE, MMMM dd, yyyy'}}" ng-model="parent.promodateend" is-open="dpOpened.rangedateend" min-date="'2015-05-01'" close-text="Close" />
+                              <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="open($event,'rangedateend')"><i class="glyphicon glyphicon-calendar"></i></button>
+                              </span>
+                            </p>
+                        </div>   
+                    </div>             
+                </tab>
+            </tabset>
+        </div>
+        
+        <div class="form-group" style="padding-bottom:20px;">
+            <h4>Discount</h4>        
+            
+                <tabset>
+                    <tab heading="% Discount">
+                        <div style="padding-top:20px;">
+                            <div class="input-group">
+                              <div class="input-group-addon">$</div>
+                              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                              <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+                    </tab>
+                    <tab heading="$ Discount">
+                        <div style="padding-top:20px;">
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                              <div class="input-group-addon">%</div>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+            
+        </div>
+        
+        <div class="form-group" style="padding-bottom:20px;">
+            <h4>Venue</h4>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                In Store
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Online
+              </label>
+            </div>
+        </div>
+
+        <div class="form-group" style="padding-bottom:20px;">
+            <label>Amount Available</label>
+            <input type="text" class="form-control" />
+            <p class="help-block">Promo code can be used (x) times.</p>
+        </div>
+        
+        <div class="form-group" style="padding-bottom:20px;">
+            <label>Bottle Limit</label>
+            <input type="text" class="form-control" />
+            <p class="help-block">Limit (x) per customer.</p>
+        </div>
+        
+        <div class="form-group" style="padding-bottom:20px;">
+            <h4>Item Selection</h4>
+            <tabset>
+                <tab heading="Items">
+                    <div style="padding-top:20px;">
+                        <a href="#" class="btn btn-default"><i class="fa fa-upload"></i> Import Spreadsheet</a>
+                    </div>
+                </tab>
+                <tab heading="Criteria">
+                    <div style="padding-top:20px;">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Color</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Country</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Region</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Sub-Region</option>
+                            </select>
+                        </div>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+        
+    </div>
+    <div class="col-xs-3">
+        <div>
+            <h2 class="text-uppercase"><span ng-bind="promocode" /></h2>
+            <p>Available from:<br/>
+            {{parent.promodatebegin | date:'fullDate'}}<br/>
+            to<br/>
+            {{parent.promodateend | date:'fullDate'}}</p>
+        </div>
+    </div>
+</div>
